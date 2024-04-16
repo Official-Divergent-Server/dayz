@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayZ Server Status</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: url('https://www.dropbox.com/scl/fi/9q3mtwopqz464ogejdq20/static.png?rlkey=p6908olhehzmyyfc10sto75cc&dl=1') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .status,
+        .players,
+        .time {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status.online {
+            color: green;
+        }
+        .status.offline {
+            color: red;
+        }
+        .map-container {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 800px; /* Adjust height as needed */
+        }
+        .map-container h2 {
+            margin-bottom: 20px;
+        }        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> (7 Days To Die) Official Divergent Server Status</h1>
+        <div class="status" id="server-status">Server Status: Loading...</div>
+        <div class="players" id="player-count">Players Online: Loading...</div>
+        <div class="time" id="live-time">Live Time: Loading...</div>        
+        <div class="ip-address" id="server-ip">IP Address: Loading...</div>
+    </div>
+
+    <script>
+        // Function to fetch server status and time
+        function fetchData() {
+            const serverId = '26611074';
+            const url = `https://api.battlemetrics.com/servers/${serverId}`;
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Update HTML content with server information
+                const serverStatusDiv = document.getElementById('server-status');
+                const serverStatus = data.data.attributes.status;
+                serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
+                const playerCountDiv = document.getElementById('player-count');
+                playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
+                const ipAddressDiv = document.getElementById('server-ip');
+                ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;
+            })
+            .catch(error => {
+                console.error('Error fetching server information:', error);
+                const serverStatusDiv = document.getElementById('server-status');
+                serverStatusDiv.innerHTML = '<span class="status offline">Server Status: Error</span>';
+                const playerCountDiv = document.getElementById('player-count');
+                playerCountDiv.innerHTML = 'Players Online: Error';
+                const ipAddressDiv = document.getElementById('server-ip');
+                ipAddressDiv.innerHTML = 'IP Address: Error';
+            });
+        }
+
+        // Function to update live time
+        function updateLiveTime() {
+            const liveTimeDiv = document.getElementById('live-time');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' };
+            const liveTime = now.toLocaleDateString('en-GB', options);
+            liveTimeDiv.textContent = `Live Time: ${liveTime}`;
+        }
+
+        // Fetch server status and time initially
+        fetchData();
+        // Fetch server status and time every 10 seconds
+        setInterval(fetchData, 10000);
+
+        // Update live time every second
+        updateLiveTime();
+        setInterval(updateLiveTime, 1000);
+    </script>
+</body>
+</html>
