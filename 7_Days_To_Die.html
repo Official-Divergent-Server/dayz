@@ -11,6 +11,7 @@
             color: #fff;
             background: url('https://www.dropbox.com/scl/fi/9q3mtwopqz464ogejdq20/static.png?rlkey=p6908olhehzmyyfc10sto75cc&dl=1') no-repeat center center fixed;
             background-size: cover;
+            font-family: Arial, sans-serif; /* Update font family */
         }
         .container {
             width: 80%;
@@ -19,10 +20,12 @@
         }
         .status,
         .players,
-        .time {
+        .time,
+        .server-settings { /* Update font size and weight */
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
+            font-family: Arial, sans-serif; /* Update font family */
         }
         .status.online {
             color: green;
@@ -46,15 +49,18 @@
 </head>
 <body>
     <div class="container">
-        <h1> (7 Days To Die) Official Divergent Server Status</h1>
+        <h1>(7 Days To Die) Official Divergent Server Status</h1>
         <div class="status" id="server-status">Server Status: Loading...</div>
         <div class="players" id="player-count">Players Online: Loading...</div>
         <div class="time" id="live-time">Live Time: Loading...</div>        
-        <div class="ip-address" id="server-ip">IP Address: Loading...</div>
+        <div class="ip-address" id="server-ip">IP Address: Loading...</div>  
+        <div class="settings" id="server-settings">
+            <h2>Server Settings:</h2>
+            <ul id="server-settings-list"></ul>
+        </div>                             
     </div>
 
     <script>
-        // Function to fetch server status and time
         function fetchData() {
             const serverId = '26611074';
             const url = `https://api.battlemetrics.com/servers/${serverId}`;
@@ -62,26 +68,43 @@
             fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Update HTML content with server information
                 const serverStatusDiv = document.getElementById('server-status');
                 const serverStatus = data.data.attributes.status;
                 serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
+                
                 const playerCountDiv = document.getElementById('player-count');
                 playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
+                
                 const ipAddressDiv = document.getElementById('server-ip');
-                ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;
+                ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;  
+
+                const serverSettingsList = document.getElementById('server-settings-list');
+                serverSettingsList.innerHTML = ''; // Clear previous settings
+
+                const settingsData = data.data.attributes.details;
+                for (const key in settingsData) {
+                    if (settingsData.hasOwnProperty(key)) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${key}: ${settingsData[key]}`;
+                        serverSettingsList.appendChild(listItem);
+                    }
+                }
             })
             .catch(error => {
                 console.error('Error fetching server information:', error);
                 const serverStatusDiv = document.getElementById('server-status');
                 serverStatusDiv.innerHTML = '<span class="status offline">Server Status: Error</span>';
+                
                 const playerCountDiv = document.getElementById('player-count');
                 playerCountDiv.innerHTML = 'Players Online: Error';
+                
                 const ipAddressDiv = document.getElementById('server-ip');
                 ipAddressDiv.innerHTML = 'IP Address: Error';
+
+                const serverSettingsList = document.getElementById('server-settings-list');
+                serverSettingsList.innerHTML = 'Server Settings: Error';
             });
         }
-
         // Function to update live time
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
@@ -91,12 +114,9 @@
             liveTimeDiv.textContent = `Live Time: ${liveTime}`;
         }
 
-        // Fetch server status and time initially
         fetchData();
-        // Fetch server status and time every 10 seconds
         setInterval(fetchData, 10000);
 
-        // Update live time every second
         updateLiveTime();
         setInterval(updateLiveTime, 1000);
     </script>
