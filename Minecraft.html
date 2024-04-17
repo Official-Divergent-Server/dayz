@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7DTD Server Status</title>
+    <title>Minecraft Server Status</title>
     <style>
         body {
             margin: 0;
@@ -49,46 +49,48 @@
 </head>
 <body>
     <div class="container">
-        <h1>(7 Days To Die) Official Divergent Server Status</h1>
+        <h1>(Minecraft) Official Divergent Server SMP 1.20.4 Status</h1>
         <div class="status" id="server-status">Server Status: Loading...</div>
         <div class="players" id="player-count">Players Online: Loading...</div>
         <div class="time" id="live-time">Live Time: Loading...</div>        
-        <div class="ip-address" id="server-ip">IP Address: Loading...</div>  
-        <div class="settings" id="server-settings">
-            <h2>Server Settings:</h2>
-            <ul id="server-settings-list"></ul>
-        </div>                             
+        <div class="ip-address" id="server-ip">IP Address: Loading...</div>
+        <ul class="server-settings" id="server-settings-list">
+            <!-- Server settings will be dynamically added here -->
+        </ul>
     </div>
 
-    <script>
+    <script>       
         function fetchData() {
-            const serverId = '26611074';
-            const url = `https://api.battlemetrics.com/servers/${serverId}`;
+            const ip = '87.237.54.158';
+            const port = '25565';
+            const url = `https://api.mcsrvstat.us/2/${ip}:${port}`;
 
             fetch(url)
             .then(response => response.json())
             .then(data => {
                 const serverStatusDiv = document.getElementById('server-status');
-                const serverStatus = data.data.attributes.status;
-                serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
-                
-                const playerCountDiv = document.getElementById('player-count');
-                playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
+                if(data.online) {
+                    serverStatusDiv.innerHTML = `<span class="status online">Server Status: Online</span>`;
+                    const playerCountDiv = document.getElementById('player-count');
+                    playerCountDiv.innerHTML = `Players Online: ${data.players.online}`;
+                } else {
+                    serverStatusDiv.innerHTML = `<span class="status offline">Server Status: Offline</span>`;
+                }
                 
                 const ipAddressDiv = document.getElementById('server-ip');
-                ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;  
+                ipAddressDiv.innerHTML = `IP Address: ${ip}:${port}`; 
 
                 const serverSettingsList = document.getElementById('server-settings-list');
                 serverSettingsList.innerHTML = ''; // Clear previous settings
 
-                const settingsData = data.data.attributes.details;
-                for (const key in settingsData) {
-                    if (settingsData.hasOwnProperty(key)) {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${key}: ${settingsData[key]}`;
-                        serverSettingsList.appendChild(listItem);
-                    }
-                }
+                const serverVersion = document.createElement('li');
+                serverVersion.textContent = `Version: ${data.version}`;
+                serverSettingsList.appendChild(serverVersion);
+
+                const serverSoftware = document.createElement('li');
+                serverSoftware.textContent = `Software: ${data.software}`;
+                serverSettingsList.appendChild(serverSoftware);
+                
             })
             .catch(error => {
                 console.error('Error fetching server information:', error);
@@ -99,10 +101,8 @@
                 playerCountDiv.innerHTML = 'Players Online: Error';
                 
                 const ipAddressDiv = document.getElementById('server-ip');
-                ipAddressDiv.innerHTML = 'IP Address: Error';
-
-                const serverSettingsList = document.getElementById('server-settings-list');
-                serverSettingsList.innerHTML = 'Server Settings: Error';
+                ipAddressDiv.innerHTML = `IP Address: ${ip}:${port}`;
+                
             });
         }
         // Function to update live time
