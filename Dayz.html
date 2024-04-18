@@ -51,7 +51,8 @@
         <h1>(UK) Official Divergent Server | PVE | No PVP | Custom Traders</h1>
         <div id="server-status">Server Status: Loading...</div>
         <div id="player-count">Players Online: Loading...</div>
-        <div id="live-time">Live Time: Loading...</div>        
+        <div id="live-time">Live Time: Loading...</div>
+        <div id="game-version">Game Version: Loading...</div>              
     </div>
 
     <script>
@@ -74,9 +75,13 @@
                     serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
 
                     const playerCountDiv = document.getElementById('player-count');
-                    playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;                  
+                    playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
 
-        
+                    // Extract game version from data
+                    const gameVersion = data.data.attributes.details.version;
+                    const gameVersionDiv = document.getElementById('game-version');
+                    gameVersionDiv.innerHTML = `Game Version: ${gameVersion}`;
+
                 })
                 .catch(error => {
                     console.error('Error fetching server information:', error);
@@ -84,6 +89,9 @@
                     serverStatusDiv.innerHTML = '<span class="status offline">Server Status: Error</span>';
                     const playerCountDiv = document.getElementById('player-count');
                     playerCountDiv.innerHTML = 'Players Online: Error';
+                    const gameVersionDiv = document.getElementById('game-version');
+                    gameVersionDiv.innerHTML = 'Game Version: Error';
+
                 });
         }
 
