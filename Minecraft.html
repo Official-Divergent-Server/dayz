@@ -11,40 +11,36 @@
             color: #fff;
             background: url('https://www.dropbox.com/scl/fi/9q3mtwopqz464ogejdq20/static.png?rlkey=p6908olhehzmyyfc10sto75cc&dl=1') no-repeat center center fixed;
             background-size: cover;
-            font-family: Arial, sans-serif; /* Update font family */
+            background-attachment: fixed;
         }
+
         .container {
-            width: 80%;
-            margin: 0 auto;
+            width: 80vw;
+            margin: auto;
             padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
         }
-        .status,
-        .players,
-        .time,
-        .server-settings { /* Update font size and weight */
+
+        h1 {
+            font-size: 24px;
+        }
+
+        #server-status,
+        #player-count,
+        #live-time {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
-            font-family: Arial, sans-serif; /* Update font family */
         }
-        .status.online {
+
+        #server-status.online {
             color: green;
         }
-        .status.offline {
+
+        #server-status.offline {
             color: red;
         }
-        .map-container {
-            margin-top: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 800px; /* Adjust height as needed */
-        }
-        .map-container h2 {
-            margin-bottom: 20px;
-        }        
     </style>
 </head>
 <body>
@@ -109,14 +105,27 @@
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
             const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' };
-            const liveTime = now.toLocaleDateString('en-GB', options);
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/London'
+            };
+            const liveTime = now.toLocaleString('en-GB', options);
             liveTimeDiv.textContent = `Live Time: ${liveTime}`;
         }
 
+        // Initial data fetch and updates
         fetchData();
+
+        // Fetch server status and data every 10 seconds
         setInterval(fetchData, 10000);
 
+        // Update live time every second
         updateLiveTime();
         setInterval(updateLiveTime, 1000);
     </script>
