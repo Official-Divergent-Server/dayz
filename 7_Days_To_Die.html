@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7DTD Server Status</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: url('https://www.dropbox.com/scl/fi/4x19oiokkdvj57plb41ja/Logo.gif?rlkey=vtx7cc1outr6bthe0kwnmefq6&st=e238gib4&dl=1') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 80vw;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        #server-status,
+        #player-count,
+        #live-time {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #server-status.online {
+            color: green;
+        }
+
+        #server-status.offline {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>[UK]Official Divergent Server Status</h1>
+        <div class="status" id="server-status">Server Status: Loading...</div>
+        <div class="players" id="player-count">Players Online: Loading...</div>
+        <div class="time" id="live-time">Live Time: Loading...</div>        
+        <div class="ip-address" id="server-ip">IP Address: Loading...</div>
+        <div id="game-version">Game Version: Loading...</div> 
+        <div class="settings" id="server-settings">
+            <h2>Server Settings:</h2>
+            <ul id="server-settings-list"></ul>
+        </div>
+        <footer>
+            <p>&copy; 2024 [UK]Official Divergent Server. All rights reserved.</p>
+        </footer>                           
+    </div>
+
+    <script>
+        function fetchData() {
+            const serverId = '26611074';
+            const url = `https://api.battlemetrics.com/servers/${serverId}`;
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const serverStatusDiv = document.getElementById('server-status');
+                const serverStatus = data.data.attributes.status;
+                serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
+                
+                const playerCountDiv = document.getElementById('player-count');
+                playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
+                
+                const ipAddressDiv = document.getElementById('server-ip');
+                ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;
+
+                // Extract game version from data
+                const gameVersion = data.data.attributes.details.version;
+                const gameVersionDiv = document.getElementById('game-version');
+                gameVersionDiv.innerHTML = `Game Version: ${gameVersion}`;  
+
+                const serverSettingsList = document.getElementById('server-settings-list');
+                serverSettingsList.innerHTML = ''; // Clear previous settings
+
+                const settingsData = data.data.attributes.details;
+                for (const key in settingsData) {
+                    if (settingsData.hasOwnProperty(key)) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${key}: ${settingsData[key]}`;
+                        serverSettingsList.appendChild(listItem);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching server information:', error);
+                const serverStatusDiv = document.getElementById('server-status');
+                serverStatusDiv.innerHTML = '<span class="status offline">Server Status: Error</span>';
+                
+                const playerCountDiv = document.getElementById('player-count');
+                playerCountDiv.innerHTML = 'Players Online: Error';
+                
+                const ipAddressDiv = document.getElementById('server-ip');
+                ipAddressDiv.innerHTML = 'IP Address: Error';
+
+                const gameVersionDiv = document.getElementById('game-version');
+                gameVersionDiv.innerHTML = 'Game Version: Error';
+
+                const serverSettingsList = document.getElementById('server-settings-list');
+                serverSettingsList.innerHTML = 'Server Settings: Error';
+            });
+        }
+        // Function to update live time
+        function updateLiveTime() {
+            const liveTimeDiv = document.getElementById('live-time');
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/London'
+            };
+            const liveTime = now.toLocaleString('en-GB', options);
+            liveTimeDiv.textContent = `Live Time: ${liveTime}`;
+        }
+
+        // Initial data fetch and updates
+        fetchData();
+
+        // Fetch server status and data every 10 seconds
+        setInterval(fetchData, 10000);
+
+        // Update live time every second
+        updateLiveTime();
+        setInterval(updateLiveTime, 1000);
+    </script>
+</body>
+</html>
