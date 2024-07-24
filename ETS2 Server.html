@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://www.dropbox.com/scl/fi/4x19oiokkdvj57plb41ja/Logo.gif?rlkey=vtx7cc1outr6bthe0kwnmefq6&st=e238gib4&dl=1') no-repeat center center fixed; 
+            background: url('https://www.dropbox.com/scl/fi/w6d5oufkqpzai44lndms1/b6fwMYo.png?rlkey=9mmqcl4ikhb6v1ftqhhew1ven&st=k2sm1sn1&dl=1') no-repeat center center fixed; 
             background-size: cover;
             display: flex;
             align-items: center;
@@ -73,6 +73,7 @@
         <h1>ETS2 Server Status</h1>
         <div class="status" id="status">Checking...</div>
         <div class="players" id="players">Players: -- / --</div>
+        <div class="time" id="live-time">Live Time: Loading...</div>
         <div class="description" id="description"></div>
         <footer>&copy; 2024 [UK]Official Divergent Server</footer>
     </div>
@@ -119,11 +120,33 @@
                 });
         }
 
+        // Function to update live time
+        function updateLiveTime() {
+            const liveTimeDiv = document.getElementById('live-time');
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Europe/London'
+            };
+            const liveTime = now.toLocaleString('en-GB', options);
+            liveTimeDiv.textContent = `Live Time: ${liveTime}`;
+        }
+
         // Update server status every 30 seconds
         setInterval(updateServerStatus, 30000);
 
         // Initial status update
         updateServerStatus();
+
+        // Update live time every second
+        updateLiveTime();
+        setInterval(updateLiveTime, 1000);        
     </script>
 </body>
 </html>
