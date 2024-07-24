@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETS2 Server Status</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://www.dropbox.com/scl/fi/4x19oiokkdvj57plb41ja/Logo.gif?rlkey=vtx7cc1outr6bthe0kwnmefq6&st=e238gib4&dl=1') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .status {
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .online {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .offline {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .players {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #ddd;
+        }
+        .description {
+            color: #ddd;
+            text-align: left;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ETS2 Server Status</h1>
+        <div class="status" id="status">Checking...</div>
+        <div class="players" id="players">Players: -- / --</div>
+        <div class="description" id="description"></div>
+        <footer>&copy; 2024 [UK]Official Divergent Server</footer>
+    </div>
+    <script>
+        const API_URL = ' https://api.gamemonitoring.net/servers/5053328'; // Replace with the actual URL
+
+        function updateServerStatus() {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    const statusElement = document.getElementById('status');
+                    const playersElement = document.getElementById('players');
+                    const descriptionElement = document.getElementById('description');
+
+                    // Check server status
+                    if (data.response.status) {
+                        statusElement.textContent = 'Online';
+                        statusElement.className = 'status online';
+                    } else {
+                        statusElement.textContent = 'Offline';
+                        statusElement.className = 'status offline';
+                    }
+
+                    // Update player count
+                    const numPlayers = data.response.numplayers;
+                    const maxPlayers = data.response.maxplayers;
+                    playersElement.textContent = `Players: ${numPlayers} / ${maxPlayers}`;
+
+                    // Update description
+                    const serverName = data.response.name;
+                    const serverMap = data.response.map;
+                    const serverVersion = data.response.version;
+                    descriptionElement.innerHTML = `
+                        <p><strong>Server Name:</strong> ${serverName}</p>
+                        <p><strong>Map:</strong> ${serverMap}</p>
+                        <p><strong>Version:</strong> ${serverVersion}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching server status:', error);
+                    const statusElement = document.getElementById('status');
+                    statusElement.textContent = 'Error fetching status';
+                    statusElement.className = 'status offline';
+                });
+        }
+
+        // Update server status every 30 seconds
+        setInterval(updateServerStatus, 30000);
+
+        // Initial status update
+        updateServerStatus();
+    </script>
+</body>
+</html>
