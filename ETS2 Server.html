@@ -78,7 +78,7 @@
         <footer>&copy; 2024 [UK]Official Divergent Server</footer>
     </div>
     <script>
-        const API_URL = ' https://api.gamemonitoring.net/servers/5053328'; // Replace with the actual URL
+        const API_URL = ' https://api.gamemonitoring.net/servers/5053328';
 
         function updateServerStatus() {
             fetch(API_URL)
@@ -120,7 +120,6 @@
                 });
         }
 
-        // Function to update live time
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
             const now = new Date();
@@ -135,16 +134,13 @@
                 timeZone: 'Europe/London'
             };
             const liveTime = now.toLocaleString('en-GB', options);
-            liveTimeDiv.textContent = `Live Time: ${liveTime}`;
-        }
+            liveTimeDiv.textContent = `Live Time: ${liveTime}`;        }
 
-        // Update server status every 30 seconds
+        
         setInterval(updateServerStatus, 30000);
-
-        // Initial status update
+        
         updateServerStatus();
-
-        // Update live time every second
+        
         updateLiveTime();
         setInterval(updateLiveTime, 1000);        
     </script>
