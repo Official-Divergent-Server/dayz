@@ -9,23 +9,32 @@
             margin: 0;
             padding: 0;
             color: #fff;
-            background: url('https://www.dropbox.com/scl/fi/4x19oiokkdvj57plb41ja/Logo.gif?rlkey=vtx7cc1outr6bthe0kwnmefq6&st=e238gib4&dl=1') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Arial, sans-serif; /* Update font family */
+            overflow: show;
         }
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 20px;
         }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
         .status,
         .players,
         .time,
-        .server-settings { /* Update font size and weight */
+        .server-settings {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
-            font-family: Arial, sans-serif; /* Update font family */
+            font-family: Arial, sans-serif;
         }
         .status.online {
             color: green;
@@ -40,14 +49,24 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 800px; /* Adjust height as needed */
+            height: 800px;
         }
         .map-container h2 {
             margin-bottom: 20px;
-        }        
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: white(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 <body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="container">
         <h1>[UK]Official Divergent autoauth discord.ggPv4ATYrRj8 Status</h1>
         <div class="status" id="server-status">Server Status: Loading...</div>
@@ -55,7 +74,6 @@
         <div class="time" id="live-time">Live Time: Loading...</div>        
         <div class="ip-address" id="server-ip">IP Address: Loading...</div>
         <ul class="server-settings" id="server-settings-list">
-            <!-- Server settings will be dynamically added here -->
         </ul>
     </div>
     <footer>
@@ -85,7 +103,7 @@
                 ipAddressDiv.innerHTML = `IP Address: ${ip}:${port}`; 
 
                 const serverSettingsList = document.getElementById('server-settings-list');
-                serverSettingsList.innerHTML = ''; // Clear previous settings
+                serverSettingsList.innerHTML = '';
 
                 const serverVersion = document.createElement('li');
                 serverVersion.textContent = `Version: ${data.version}`;
@@ -106,7 +124,7 @@
                 
             });
         }
-        // Function to update live time
+
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
             const now = new Date();
