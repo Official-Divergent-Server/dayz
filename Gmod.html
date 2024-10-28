@@ -10,17 +10,25 @@
             margin: 0;
             padding: 0;
             color: #fff;
-            background: url('https://www.dropbox.com/scl/fi/4x19oiokkdvj57plb41ja/Logo.gif?rlkey=vtx7cc1outr6bthe0kwnmefq6&st=e238gib4&dl=1') no-repeat center center fixed;
-            background-size: cover;
-            background-attachment: fixed;
+            overflow: show;
         }
 
         .container {
             width: 80vw;
             margin: auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: white(0, 0, 0, 0.5);
             border-radius: 8px;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
         h1 {
@@ -42,9 +50,19 @@
         #server-status.offline {
             color: red;
         }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: white(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 <body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="container">
         <h1>[UK]Official Divergent Server Status</h1>
         <div class="status" id="server-status">Server Status: Loading...</div>
@@ -63,7 +81,6 @@
     </div>
 
     <script>
-        // Function to fetch server status, time, and settings
         function fetchData() {
             const serverId = '26691721';
             const url = `https://api.battlemetrics.com/servers/${serverId}`;
@@ -71,7 +88,6 @@
             fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Update HTML content with server information
                 const serverStatusDiv = document.getElementById('server-status');
                 const serverStatus = data.data.attributes.status;
                 serverStatusDiv.innerHTML = `<span class="status ${serverStatus.toLowerCase()}">Server Status: ${serverStatus}</span>`;
@@ -79,8 +95,7 @@
                 playerCountDiv.innerHTML = `Players Online: ${data.data.attributes.players}`;
                 const ipAddressDiv = document.getElementById('server-ip');
                 ipAddressDiv.innerHTML = `IP Address: ${data.data.attributes.ip}`;
-                
-                // Update server settings
+
                 const serverNameDiv = document.getElementById('server-name');
                 serverNameDiv.innerHTML = `Server Name: ${data.data.attributes.name}`;
                 const serverMapDiv = document.getElementById('server-map');
@@ -90,11 +105,9 @@
             })
             .catch(error => {
                 console.error('Error fetching server information:', error);
-                // Handle error
             });
         }
 
-        // Function to update live time
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
             const now = new Date();
@@ -112,13 +125,10 @@
             liveTimeDiv.textContent = `Live Time: ${liveTime}`;
         }
 
-        // Initial data fetch and updates
         fetchData();
 
-        // Fetch server status and data every 10 seconds
         setInterval(fetchData, 10000);
 
-        // Update live time every second
         updateLiveTime();
         setInterval(updateLiveTime, 1000);
     </script>
