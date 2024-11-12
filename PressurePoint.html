@@ -16,7 +16,7 @@
             width: 80vw;
             margin: auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: white(0, 0, 0, 0.5);
             border-radius: 8px;
             text-align: center;
         }
@@ -54,6 +54,19 @@
             text-align: center;
             font-size: 14px;
         }
+        #mod-list {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #mod-list li {
+            padding: 5px;
+            background-color: white(0, 0, 0, 0.7);
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -65,6 +78,18 @@
         <div id="live-time" class="status">Live Time: Loading...</div>
         <div id="game-version" class="status">Game Version: Loading...</div>
         <div id="next-restart" class="status">Next Restart: Loading...</div>
+
+        <div>
+            <h2>Installed Mods:</h2>
+            <ul id="mod-list">
+                <li>DayZ-Expansion-Bundle</li>
+                <li>dbo_spiders</li>
+                <li>Forward Operator Gear</li>
+                <li>SNAFU Weapons</li>
+                <li>Z_Alien</li>
+                <li>And more...</li>
+            </ul>
+        </div>
     </div>
     <footer>
         <p>&copy; 2024 PressurePoint. All rights reserved.</p>
