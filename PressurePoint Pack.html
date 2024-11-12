@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="dayz:Type" content="list">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayZ Mods</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            overflow: show;
+        }
+
+        .image-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        h1 {
+            padding: 20px;
+            color: white;
+            font-weight: 200;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .before-list {
+            padding: 5px 20px 10px 20px;
+        }
+
+        .mod-list {
+            background: white(34, 34, 34, 0.8);
+            padding: 20px;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #F1AF41;
+            text-decoration: none;
+        }
+
+        .footer, .whups {
+            padding: 20px;
+            color: white;
+        }
+
+        .workshop-logo {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        td[data-type="DisplayName"] {
+            font-size: 20px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 10;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin: 20px 0;">
+			<img src="https://www.dropbox.com/scl/fi/rh251fmzxp0dda4wyt03k/DayZ-Daily-Press.png?rlkey=rh0wl49hyuvq1r5x9rmbhchjs&st=bi65m7ql&dl=1" alt="Background Image" class="image-background">
+            <div class="overlay"></div>
+        </div>        
+        <h1>🌟 Welcome to the PressurePoint Server Mod Pack! </h1>
+        </div>
+        <div class="mod-list">
+            <table>
+                <tr data-type="ModContainer">
+                    <td data-type="DisplayName">
+                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3317068699" style="text-decoration: none;" target="_blank">
+                            <img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
+                            [UK]Official Divergent Clothing
+                        </a>
+                    </td>
+                </tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3319666054"  style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
+							[UK]Official Divergent Mutant
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2651195301" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							[UK]Official Divergent Weapon
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3317076770" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/e3sm8la6k4p9k7i4d4u4g/Arma-2-Helicopters-Remastered.jfif?rlkey=7gb0zt6k75xod2hwrd6tzw72p&st=az469u1q&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Arma 2 Helicopters Remastered
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2804416401" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/47gongae6z7vtdrt1mwth/Artefact-Disease.jfif?rlkey=6uvemda5dfhkvmq7tq0jyuw4u&st=8300e69s&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Artefact Disease
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2851374375" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/n31rdujjhvgb9ng2665bn/Automated-Turrets.jfif?rlkey=65qtyfhikgwa6abus18pj1mqv&st=oe2um71y&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Automated Turrets
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1710977250" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/8i187uvohuftkevzh4ywp/BaseBuildingPlus.jfif?rlkey=83kp6733bzqfrv2dbw2z6gnuq&st=er6evv3c&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							BaseBuildingPlus
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2403718453" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/i75rascikxj1zq0qtt52a/Blackouts-Organ-Harvesting.jfif?rlkey=amm07jxw0q3yfeyvqxkxd1ru4&st=24mu40xp&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Blackouts Organ Harvesting
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2909935986" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/gtvb85tlzwwv9bi0rfpjk/Blackouts-Scorpion.jfif?rlkey=54uo5cjm1kbcl0vnua0gietyp&st=hanokirm&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Blackouts Scorpion
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3011221120" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/6xtbuxlupdb8hxt085gir/BuildStack-X2.jfif?rlkey=1ltotslx7n5vuzr5dm7tcii0h&st=8e60mpag&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							BuildStack X2
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1932611410" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/pt5r44ue7eojz0u0367i6/CannabisPlus.jfif?rlkey=zfria81k5zcxmh1xh30dc55yh&st=rqkc95d9&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							CannabisPlus
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=1559212036" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/p4lezhkxne3ao40cgq0mc/CF.jfif?rlkey=pyqtxmwull5b20krnon0g8k0n&st=40ag4b6n&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							CF
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2851058261" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/nabpxx1frwpckgjz12ma3/CJ187-PokemonCards.jfif?rlkey=idwih4l1le4o802n5me3ydwjp&st=jovudp30&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							CJ187-PokemonCards
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3189503589" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/hv53d65bgua0wm3i2ie51/Continuous-repair.jfif?rlkey=2mnht6av35sthd4z4hoskwgin&st=6e065522&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Continuous repair
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=2545327648" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/b7n2ihu688lbbli48yt7h/Dabs-Framework.jfif?rlkey=d1dx0otuqkq7msouoz07wg969&st=dqvzgv3m&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Dabs Framework
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3364147126" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/nvyccwbyl8u3bwmgeuwzb/Daily-Press-Pack.jfif?rlkey=yp2zyp4kth4qjyzl2xan4s4iw&st=5dk2gfyc&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Daily Press Pack
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=2276010135" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/1seq0cgp8nza6xyhbvm9p/DayZ-Editor-Loader.jfif?rlkey=zlh8p25b7c164mwqgs9b2afe8&st=lw7ilze7&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							DayZ Editor Loader
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2572331007" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/bfis4zph89k9qpx8h35ha/DayZ-Expansion.jfif?rlkey=nhfq0c8ccy57d2uylcv5tlhip&st=2f9z5jjd&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							DayZ-Expansion-Bundle
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2116157322" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/bfis4zph89k9qpx8h35ha/DayZ-Expansion.jfif?rlkey=nhfq0c8ccy57d2uylcv5tlhip&st=2f9z5jjd&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							DayZ-Expansion-Licensed
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2789029784" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/ohyyg5z2ih9cpqoy212rv/dbo_spiders.jfif?rlkey=vobxzww60dyf0hlgavpqwzjts&st=phx371ao&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							dbo_spiders
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1895432270" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/uxbkkk0tqpsnsjns0r64o/Dingo_Truck.jfif?rlkey=viq6l8m7q92kyr94efr7yqo5s&st=jp0d23tx&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Dingo_Truck
+						</a>
+					</td>
+				</tr>
+                <tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1832448183" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/j4pl1zsje3eh5uz4eok1m/FlipTransport.jfif?rlkey=m9d22ojtfsvg5jbr6ggw0gtd4&st=64u2r2n5&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							FlipTransport
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2931560672" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/2sqva4og1k1sfj8skm23c/Forward-Operator-Gear.jfif?rlkey=rzlhiasj9hzxagqslj11gzd4v&st=pfdkrwx3&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Forward Operator Gear
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2601606391" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/v2knxi8w7efodfyqygyxv/LastDayZ_Radios.jfif?rlkey=wf35wawd5p9z26glb0572l4rt&st=2khjl716&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							LastDayZ_Radios
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2779822177" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/cuiz3nqoddyqmzlugiu6t/Mask-pack.jfif?rlkey=m7w1w7zqxs7c7wgy45r48dkyn&st=5to88a3d&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Mask pack
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2936585965" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/io8m5km4uqbf0v90jchn1/SearchInventory.jfif?rlkey=wlmm65w4qz9u59gvlehcvesko&st=bg3mvhz1&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							SearchInventory
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1680019590" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/6pry1ug0x2gf1ch2wcm4x/Server_Information_Panel.jfif?rlkey=i9qsjqpcw5wr3mx4u25fqz08m&st=h6apckuu&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Server_Information_Panel
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2443122116" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/qqn6gsvjrpnhsc13ek4cw/SNAFU-Weapons.jfif?rlkey=fzkf422k8tzw9govkyrvwksip&st=n250tl6b&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							SNAFU Weapons
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2933015619" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/3dnf3tuokmhfmqk6q5i1p/Stargate-Teleporters-Complete.jfif?rlkey=raio2klgn892f3j3vcq9h9gow&st=wuikgswg&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Stargate Teleporters Complete
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3361372980" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/nvyccwbyl8u3bwmgeuwzb/Daily-Press-Pack.jfif?rlkey=yp2zyp4kth4qjyzl2xan4s4iw&st=5dk2gfyc&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							The1SerPac
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3364497860" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/nvyccwbyl8u3bwmgeuwzb/Daily-Press-Pack.jfif?rlkey=yp2zyp4kth4qjyzl2xan4s4iw&st=5dk2gfyc&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							The1SerPac11
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3011551250" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/ya0dt2rw9dhqykigzfubz/Trolley-Kart-UPDATED.jfif?rlkey=phsu06e2jj4c9flhvy5llmam8&st=44tyj1x5&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Trolley Kart UPDATED
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3011539812" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/nh6y6vv0mzmrtlms6xrp1/Trolley-Kopter.jfif?rlkey=8v5bw8y0l1bd0wizup48swz05&st=1elg5eeo&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Trolley Kopter
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1828439124" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/qpr0y65zow07n8ckujoex/VPPAdminTools.jfif?rlkey=wz2k73coh85rxvnocwsipk8ke&st=ksdjjqgw&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							VPPAdminTools
+						</a>
+					</td>
+				</tr>
+				<tr data-type="ModContainer">
+					<td data-type="DisplayName">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3017273820" style="text-decoration: none;" target="_blank">
+							<img src="https://www.dropbox.com/scl/fi/ampb9nz5moakojwgm4y4p/Z_Alien.jfif?rlkey=sw5eumirk1zamzz5lrz2iyzpq&st=41v5up8e&dl=1" alt="Workshop Logo" class="workshop-logo" />
+							Z_Alien
+						</a>
+					</td>
+				</tr>
+            </table>
+        </div>       
+		<footer>
+            <div class="footer-container">
+                <p>&copy; 2024 PressurePoint. All rights reserved.</p>
+                <p>We are not responsible for any issues with the mods linked above. Use at your own risk.</p>
+                <ul class="footer-nav">
+                    <li><a href="https://discord.gg/wBVDVMaW6F" target="_blank">Support</a></li>
+                    <li><a href="https://official-divergent-server.github.io/dayz/PressurePoint.html" target="_blank">Server Status</a></li>
+                </ul>
+            </div>
+        </footer>        
+    </div>
+</body>
+</html>
