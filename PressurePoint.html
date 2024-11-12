@@ -43,11 +43,16 @@
         #server-status.offline {
             color: red;
         }
-
         footer {
-            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px;
             background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -65,6 +70,7 @@
         <p>&copy; 2024 PressurePoint. All rights reserved.</p>
     </footer>
     <script>
+        // JavaScript for fetching data and updating times
         function fetchData() {
             const serverId = '29022184';
             const url = `https://api.battlemetrics.com/servers/${serverId}`;
@@ -109,7 +115,7 @@
         function updateNextRestart() {
             const nextRestartDiv = document.getElementById('next-restart');
             const now = new Date();
-            const restartInterval = 6 * 60 * 60 * 1000; // 6 hours
+            const restartInterval = 6 * 60 * 60 * 1000;
             const nextRestartTime = new Date(Math.ceil(now.getTime() / restartInterval) * restartInterval);
             
             const nextRestartFormatted = nextRestartTime.toLocaleString();
