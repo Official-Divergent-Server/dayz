@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="dayz:Type" content="list">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DayZ Mods</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -12,7 +11,6 @@
             padding: 0;
             color: #fff;
             font-family: 'Roboto', sans-serif;
-            overflow: show;
         }
 
         .image-background {
@@ -33,10 +31,6 @@
             margin: 0;
         }
 
-        .before-list {
-            padding: 5px 20px 10px 20px;
-        }
-
         .mod-list {
             background: white(34, 34, 34, 0.8);
             padding: 20px;
@@ -50,11 +44,6 @@
         a:hover {
             color: #F1AF41;
             text-decoration: none;
-        }
-
-        .footer, .whups {
-            padding: 20px;
-            color: white;
         }
 
         .workshop-logo {
@@ -88,44 +77,33 @@
             font-size: 14px;
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            z-index: 10;
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
         }
 
     </style>
-    <script>
-        document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName === 'VIDEO') {
-                e.preventDefault();
-            }
-        });
-
-    </script>
 </head>
 <body>
     <div style="text-align: center; margin: 20px 0;">
-			<img src="https://www.dropbox.com/scl/fi/rh251fmzxp0dda4wyt03k/DayZ-Daily-Press.png?rlkey=rh0wl49hyuvq1r5x9rmbhchjs&st=bi65m7ql&dl=1" alt="Background Image" class="image-background">
-            <div class="overlay"></div>
-        </div>        
-        <h1>🌟 Welcome to the PressurePoint Server Mod Pack! </h1>
-        </div>
-        <div class="mod-list">
-            <table>
-                <tr data-type="ModContainer">
-                    <td data-type="DisplayName">
-                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3317068699" style="text-decoration: none;" target="_blank">
-                            <img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
-                            [UK]Official Divergent Clothing
-                        </a>
-                    </td>
-                </tr>
-				<tr data-type="ModContainer">
+        <img src="https://www.dropbox.com/scl/fi/rh251fmzxp0dda4wyt03k/DayZ-Daily-Press.png?rlkey=rh0wl49hyuvq1r5x9rmbhchjs&st=bi65m7ql&dl=1" alt="Background Image" class="image-background">
+    </div>        
+    <h1>🌟 Welcome to the PressurePoint Server Mod Pack! </h1>
+    <div class="mod-list">
+        <table>
+            <tr data-type="ModContainer">
+                <td data-type="DisplayName">
+                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3317068699" style="text-decoration: none;" target="_blank">
+                        <img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
+                        [UK]Official Divergent Clothing
+                    </a>
+                </td>
+            </tr>
+			<tr data-type="ModContainer">
 					<td data-type="DisplayName">
 						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3319666054"  style="text-decoration: none;" target="_blank">
 							<img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
@@ -389,17 +367,17 @@
 						</a>
 					</td>
 				</tr>
-				<tr data-type="ModContainer">
-					<td data-type="DisplayName">
-						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3017273820" style="text-decoration: none;" target="_blank">
-							<img src="https://www.dropbox.com/scl/fi/ampb9nz5moakojwgm4y4p/Z_Alien.jfif?rlkey=sw5eumirk1zamzz5lrz2iyzpq&st=41v5up8e&dl=1" alt="Workshop Logo" class="workshop-logo" />
-							Z_Alien
-						</a>
-					</td>
-				</tr>
+				<<tr data-type="ModContainer">
+                    <td data-type="DisplayName">
+                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3017273820" style="text-decoration: none;" target="_blank">
+                            <img src="https://www.dropbox.com/scl/fi/ampb9nz5moakojwgm4y4p/Z_Alien.jfif?rlkey=sw5eumirk1zamzz5lrz2iyzpq&st=41v5up8e&dl=1" alt="Workshop Logo" class="workshop-logo" />
+                            Z_Alien
+                        </a>
+                    </td>
+                </tr>
             </table>
         </div>       
-		<footer>
+        <footer>
             <div class="footer-container">
                 <p>&copy; 2024 PressurePoint. All rights reserved.</p>
                 <p>We are not responsible for any issues with the mods linked above. Use at your own risk.</p>
@@ -409,6 +387,5 @@
                 </ul>
             </div>
         </footer>        
-    </div>
-</body>
-</html>
+    </body>
+    </html>
