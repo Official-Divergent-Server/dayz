@@ -12,6 +12,7 @@
             color: #fff;
             overflow: hidden;
         }
+
         .container {
             width: 80vw;
             margin: auto;
@@ -20,6 +21,7 @@
             border-radius: 8px;
             text-align: center;
         }
+
         .video-background {
             position: fixed;
             top: 0;
@@ -29,6 +31,7 @@
             object-fit: cover;
             z-index: -1;
         }
+
         h1 {
             font-size: 24px;
         }
@@ -37,17 +40,40 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+
         #server-status.online {
             color: green;
         }
+
         #server-status.offline {
             color: red;
         }
 
         footer {
-            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px;
             background-color: white(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        #mod-list {
+            margin-top: 40px;
+            color: #f304fc;
+            font-size: 40px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #mod-list li {
+            padding: 5px;
+            background-color: black(0, 0, 0, 0.7);
+            margin-bottom: 5px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -63,6 +89,16 @@
         <div id="live-time" class="status">Live Time: Loading...</div>
         <div id="game-version" class="status">Game Version: Loading...</div>
         <div id="next-restart" class="status">Next Restart: Loading...</div>
+        <div>
+            <h2>Installed Mods:</h2>
+            <ul id="mod-list">
+                <li>DayZ-Expansion-Bundle</li>
+                <li>Arma 2 Helicopters Remastered</li>
+                <li>Forward Operator Gear</li>
+                <li>Cannabis Plus</li>
+                <li>DayZ Dog</li>
+                <li>And more...</li>
+            </ul>        
     </div>
     <footer>
         <p>&copy; 2024 [UK]Official Divergent Server. All rights reserved.</p>
@@ -105,18 +141,17 @@
         function updateLiveTime() {
             const liveTimeDiv = document.getElementById('live-time');
             const now = new Date();
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Europe/London'
-            };
-            const liveTime = now.toLocaleString('en-GB', options);
-            liveTimeDiv.textContent = `Live Time: ${liveTime}`;
+            
+            // Format date to DD/MM/YYYY
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const formattedTime = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            liveTimeDiv.textContent = `Live Time: ${formattedTime}`;
         }
 
         function updateNextRestart() {
@@ -125,19 +160,15 @@
             const restartInterval = 6 * 60 * 60 * 1000;
             const nextRestartTime = new Date(Math.ceil(now.getTime() / restartInterval) * restartInterval);
             
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Europe/London'
-            };
+            const day = String(nextRestartTime.getDate()).padStart(2, '0');
+            const month = String(nextRestartTime.getMonth() + 1).padStart(2, '0');
+            const year = nextRestartTime.getFullYear();
+            const hours = String(nextRestartTime.getHours()).padStart(2, '0');
+            const minutes = String(nextRestartTime.getMinutes()).padStart(2, '0');
+            const seconds = String(nextRestartTime.getSeconds()).padStart(2, '0');
 
-            const nextRestartFormatted = nextRestartTime.toLocaleString('en-GB', options);
-            nextRestartDiv.textContent = `Next Restart: ${nextRestartFormatted}`;
+            const formattedRestartTime = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            nextRestartDiv.textContent = `Next Restart: ${formattedRestartTime}`;
         }
 
         fetchData();
