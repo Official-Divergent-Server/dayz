@@ -12,7 +12,7 @@
             padding: 0;
             color: #fff;
             font-family: 'Roboto', sans-serif;
-            overflow: show;
+            overflow: visible;
         }
 
         .video-background {
@@ -33,13 +33,15 @@
             margin: 0;
         }
 
-        .before-list {
-            padding: 5px 20px 10px 20px;
+        .mod-list {
+            background-color: white(34, 34, 34, 0.8);
+            padding: 20px;
         }
 
-        .mod-list {
-            background: white(34, 34, 34, 0.8);
-            padding: 20px;
+        .workshop-logo {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
         }
 
         a {
@@ -52,34 +54,28 @@
             text-decoration: none;
         }
 
-        .footer, .whups {
+        footer {
+            text-align: center;
             padding: 20px;
+            background-color: white(0, 0, 0, 0.5);
             color: white;
         }
 
-        .workshop-logo {
-            width: 60px;
-            height: auto;
-            margin-right: 10px;
+        .footer-container {
+            display: block;
+            overflow: visible;
         }
 
-        td[data-type="DisplayName"] {
-            font-size: 20px;
-        }
-
-        td {
-            padding: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        footer {
+        .footer-nav {
+            margin: 10px 0;
+            padding: 0;
+            list-style: none;
             text-align: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .footer-nav li {
+            display: inline-block;
+            margin: 0 10px;
         }
 
         .iframe-container {
@@ -88,6 +84,7 @@
             border: none;
             margin-top: 40px;
             position: relative;
+            background-color: white(0, 0, 0, 0.5);
         }
 
         .overlay {
@@ -96,7 +93,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0);
+            background: white(0, 0, 0, 0.4);
             z-index: 10;
         }
 
@@ -110,6 +107,7 @@
             cursor: pointer;
             z-index: 20;
         }
+
     </style>
     <script>
         document.addEventListener('contextmenu', function(e) {
@@ -130,25 +128,26 @@
             <video id="promoVideo" autoplay muted loop playsinline>
                 <source src="https://www.dropbox.com/scl/fi/j2es6e30miyhl7pxes02a/Updated-Promo.mp4?rlkey=b4r1j1u2d4hqvu92n8bzgblyj&st=mt5qgcz4&dl=1" type="video/mp4">
                 Your browser does not support the video tag.
-            <</video>
-			<video autoplay muted loop class="video-background">
-				<source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
+            </video>
+            <video autoplay muted loop class="video-background">
+                <source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="overlay"></div>
         </div>
         <button class="unmute-button" onclick="toggleMute(document.getElementById('promoVideo'))">Unmute</button>
-        
-        <h1>🌟 Welcome to the [UK] Official Divergent DayZ Server Mod Pack! 🌟</h1>	
+
+        <h1>🌟 Welcome to the [UK] Official Divergent DayZ Server Mod Pack! 🌟</h1>    
+
         <div style="text-align: center; margin: 20px 0;">
             <p>⬇️ Below is an exclusive offer! Use the code <strong>LMG97-a-4680</strong> at checkout to receive a <strong>20% discount!</strong> ⬇️</p>
         </div>
+        
         <div style="text-align:center; margin: 20px 0;">
             <a href="https://zap-hosting.com/a/46270d5e99b0471f112bd9837e894bc58af90fa4" style="text-decoration: none;" target="_blank">
                 <img src="https://zap-hosting.com/interface/download/images.php?type=affiliate&id=386405" alt="ZAP-Hosting Gameserver and Webhosting">
             </a>    
         </div>
-		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'L4L7166MQS');kofiwidget2.draw();</script>
         <div class="mod-list">
             <table>
                 <tr data-type="ModContainer">
@@ -499,15 +498,21 @@
                 <div class="overlay"></div>
             </div>
             <button class="unmute-button" onclick="toggleMute(document.getElementById('updateVideo'))">Unmute</button>
-        </div>       
-		<footer>
+        </div>
+
+        <!-- New Ko-fi iframe -->
+        <div id="ko-fi-container" style="text-align:center; margin: 20px 0;">
+            <iframe id='kofiframe' src='https://ko-fi.com/divergentserver/?hidefeed=true&widget=true&embed=true&preview=true' style='border:none;width:100%;padding:4px;background:#000000;' height='712' title='divergentserver'></iframe>
+        </div>
+
+        <footer>
             <div class="footer-container">
                 <p>&copy; 2024 Official Divergent Server. All rights reserved.</p>
                 <p>We are not responsible for any issues with the mods linked above. Use at your own risk.</p>
                 <ul class="footer-nav">
                     <li><a href="https://www.officialdivergentserver.com/page/terms" target="_blank">Terms of Service</a></li>
                     <li><a href="https://www.officialdivergentserver.com/page/privacy-policy" target="_blank">Privacy Policy</a></li>
-                    <li><a href="https://discord.gg/Pv4ATYrRj8" target="_blank">Support</a></li>
+                    <li><a href="https://discord.gg/Pv4ATYrB" target="_blank">Join our Discord</a></li>
                 </ul>
             </div>
         </footer>
