@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
             padding: 0;
             color: #fff;
             font-family: 'Roboto', sans-serif;
-            overflow: visible;
+            overflow: show;
         }
 
         .video-background {
@@ -33,15 +33,13 @@
             margin: 0;
         }
 
-        .mod-list {
-            background-color: white(34, 34, 34, 0.8);
-            padding: 20px;
+        .before-list {
+            padding: 5px 20px 10px 20px;
         }
 
-        .workshop-logo {
-            width: 60px;
-            height: auto;
-            margin-right: 10px;
+        .mod-list {
+            background: white(34, 34, 34, 0.8);
+            padding: 20px;
         }
 
         a {
@@ -54,28 +52,34 @@
             text-decoration: none;
         }
 
-        footer {
-            text-align: center;
+        .footer, .whups {
             padding: 20px;
-            background-color: white(0, 0, 0, 0.5);
             color: white;
         }
 
-        .footer-container {
-            display: block;
-            overflow: visible;
+        .workshop-logo {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
         }
 
-        .footer-nav {
-            margin: 10px 0;
-            padding: 0;
-            list-style: none;
+        td[data-type="DisplayName"] {
+            font-size: 20px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        footer {
             text-align: center;
-        }
-
-        .footer-nav li {
-            display: inline-block;
-            margin: 0 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .iframe-container {
@@ -84,7 +88,6 @@
             border: none;
             margin-top: 40px;
             position: relative;
-            background-color: white(0, 0, 0, 0.5);
         }
 
         .overlay {
@@ -93,7 +96,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: white(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0);
             z-index: 10;
         }
 
@@ -107,7 +110,6 @@
             cursor: pointer;
             z-index: 20;
         }
-
     </style>
     <script>
         document.addEventListener('contextmenu', function(e) {
@@ -128,33 +130,32 @@
             <video id="promoVideo" autoplay muted loop playsinline>
                 <source src="https://www.dropbox.com/scl/fi/j2es6e30miyhl7pxes02a/Updated-Promo.mp4?rlkey=b4r1j1u2d4hqvu92n8bzgblyj&st=mt5qgcz4&dl=1" type="video/mp4">
                 Your browser does not support the video tag.
-            </video>
-            <video autoplay muted loop class="video-background">
-                <source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <</video>
+			<video autoplay muted loop class="video-background">
+				<source src="https://official-divergent-server.github.io/dayz/Intro.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
             <div class="overlay"></div>
         </div>
         <button class="unmute-button" onclick="toggleMute(document.getElementById('promoVideo'))">Unmute</button>
-
-        <h1>🌟 Welcome to the [UK] Official Divergent DayZ Server Mod Pack! 🌟</h1>    
-
+        
+        <h1>🌟 Welcome to the [UK] Official Divergent DayZ Server Sakhal Mod Pack! 🌟</h1>	
         <div style="text-align: center; margin: 20px 0;">
             <p>⬇️ Below is an exclusive offer! Use the code <strong>LMG97-a-4680</strong> at checkout to receive a <strong>20% discount!</strong> ⬇️</p>
         </div>
-        
         <div style="text-align:center; margin: 20px 0;">
             <a href="https://zap-hosting.com/a/46270d5e99b0471f112bd9837e894bc58af90fa4" style="text-decoration: none;" target="_blank">
                 <img src="https://zap-hosting.com/interface/download/images.php?type=affiliate&id=386405" alt="ZAP-Hosting Gameserver and Webhosting">
             </a>    
         </div>
+		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'L4L7166MQS');kofiwidget2.draw();</script>
         <div class="mod-list">
             <table>
                 <tr data-type="ModContainer">
                     <td data-type="DisplayName">
-                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3136932750" style="text-decoration: none;" target="_blank">
+                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3366242589" style="text-decoration: none;" target="_blank">
                             <img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo">
-                            🌐 Official Divergent Server 🌐
+                            🌐 Official Divergent Server Sakhal 🌐
                         </a>
                     </td>
                 </tr>
@@ -176,9 +177,9 @@
 				</tr>
 				<tr data-type="ModContainer">
 					<td data-type="DisplayName">
-						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3317076770" style="text-decoration: none;" target="_blank">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3366630292" style="text-decoration: none;" target="_blank">
 							<img src="https://www.dropbox.com/scl/fi/8hm37xzqetgzujakv4l4h/Logo.png?rlkey=hjxywmnbcvm3l7zchcpczp394&st=6p0gykx9&dl=1" alt="Workshop Logo" class="workshop-logo" />
-							[UK]Official Divergent Car
+							[UK]Official Divergent Car Sakhal
 						</a>
 					</td>
 				</tr>
@@ -344,14 +345,6 @@
 				</tr>
 				<tr data-type="ModContainer">
 					<td data-type="DisplayName">
-						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2789029784" style="text-decoration: none;" target="_blank">
-							<img src="https://www.dropbox.com/scl/fi/ohyyg5z2ih9cpqoy212rv/dbo_spiders.jfif?rlkey=vobxzww60dyf0hlgavpqwzjts&st=phx371ao&dl=1" alt="Workshop Logo" class="workshop-logo" />
-							dbo_spiders
-						</a>
-					</td>
-				</tr>
-				<tr data-type="ModContainer">
-					<td data-type="DisplayName">
 						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3358955263" style="text-decoration: none;" target="_blank">
 							<img src="https://www.dropbox.com/scl/fi/t5bi00m7qz9vs0j37ije3/DeliveryDrone.jfif?rlkey=xxfg6tvwlq6a5bg056dcp5x37&st=fcbkpdj4&dl=1" alt="Workshop Logo" class="workshop-logo" />
 							DeliveryDrone
@@ -395,14 +388,6 @@
 						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3010267444" style="text-decoration: none;" target="_blank">
 							<img src="https://www.dropbox.com/scl/fi/gk0t16lm1ih6kolzpzp25/MBM_CanAm.jfif?rlkey=copzk65e8xa1blug6wlm7lp0t&st=uzcrf4y5&dl=1" alt="Workshop Logo" class="workshop-logo" />
 							MBM_CanAm
-						</a>
-					</td>
-				</tr>
-				<tr data-type="ModContainer">
-					<td data-type="DisplayName">
-						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3301234558" style="text-decoration: none;" target="_blank">
-							<img src="https://www.dropbox.com/scl/fi/i0z9pelqk50im7wvv7znq/MoonShining.jfif?rlkey=onfwroq952q181rvotg68axhv&st=j5q8oj7i&dl=1" alt="Workshop Logo" class="workshop-logo" />
-							MoonShining
 						</a>
 					</td>
 				</tr>
@@ -498,21 +483,15 @@
                 <div class="overlay"></div>
             </div>
             <button class="unmute-button" onclick="toggleMute(document.getElementById('updateVideo'))">Unmute</button>
-        </div>
-
-        <!-- New Ko-fi iframe -->
-        <div id="ko-fi-container" style="text-align:center; margin: 20px 0;">
-            <iframe id='kofiframe' src='https://ko-fi.com/divergentserver/?hidefeed=true&widget=true&embed=true&preview=true' style='border:none;width:100%;padding:4px;background:#000000;' height='712' title='divergentserver'></iframe>
-        </div>
-
-        <footer>
+        </div>       
+		<footer>
             <div class="footer-container">
                 <p>&copy; 2024 Official Divergent Server. All rights reserved.</p>
                 <p>We are not responsible for any issues with the mods linked above. Use at your own risk.</p>
                 <ul class="footer-nav">
                     <li><a href="https://www.officialdivergentserver.com/page/terms" target="_blank">Terms of Service</a></li>
                     <li><a href="https://www.officialdivergentserver.com/page/privacy-policy" target="_blank">Privacy Policy</a></li>
-                    <li><a href="https://discord.gg/Pv4ATYrB" target="_blank">Join our Discord</a></li>
+                    <li><a href="https://discord.gg/Pv4ATYrRj8" target="_blank">Support</a></li>
                 </ul>
             </div>
         </footer>
