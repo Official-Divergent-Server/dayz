@@ -25,6 +25,26 @@
         h1 {
             font-size: 24px;
         }
+        footer {
+      text-align: center;
+      padding: 20px;
+      background-color: white(0, 0, 0, 0.5);
+      color: white;
+      }
+      .footer-container {
+      display: block;
+      overflow: visible;
+      }
+      .footer-nav {
+      margin: 10px 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      }
+      .footer-nav li {
+      display: inline-block;
+      margin: 0 10px;
+      }
 
         #server-status,
         #player-count,
@@ -56,13 +76,20 @@
             <ul id="server-settings-list"></ul>
         </div>
         <footer>
-            <p>&copy; 2025 [UK]Official Divergent Server. All rights reserved.</p>
-        </footer>                           
+            <div class="footer-container">
+              <p>&copy; 2025 Official Divergent Server. All rights reserved.</p>              
+              <ul class="footer-nav">
+                <li><a href="https://www.officialdivergentserver.com/page/terms" target="_blank">Terms of Service</a></li>
+                <li><a href="https://www.officialdivergentserver.com/page/privacy-policy" target="_blank">Privacy Policy</a></li>
+                <li><a href="https://discord.gg/Pv4ATYrRj8" target="_blank">Support</a></li>
+              </ul>
+            </div>
+          </footer>                           
     </div>
 
     <script>
         function fetchData() {
-            const serverId = '26611074';
+            const serverId = '31672671';
             const url = `https://api.battlemetrics.com/servers/${serverId}`;
 
             fetch(url)
